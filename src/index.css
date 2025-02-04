@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: lightblue;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+nav div {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+}
+
+nav button {
+  background: rgb(0, 0, 211);
+  border: none;
+  padding: 0.75rem 0.75rem;
+  border-radius: 5px;
+  color: white;
+  font-size: 500;
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+  cursor: pointer;
+  transition: ease-in-out 3s;
+  font-weight: 500;
+}
+nav button:hover {
+  background: rgb(110, 110, 241);
+}
+
+.container {
+  padding: 1rem 2rem 2rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* target color, score, and status*/
+.targetbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 3rem;
+}
+.target-color {
+  height: 150px;
+  max-width: 300px;
+  width: 100%;
+
+  border-radius: 8px;
+}
+
+.score-and-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-status {
+  margin-top: -4px;
+}
+.score-and-status p {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.score {
+  display: flex;
+  gap: 2px;
+}
+
+/* color options */
+.color-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+
+  gap: 20px;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+.color-button {
+  height: 70px;
+  width: 70px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.color-button:hover {
+  transform: scale(1.1);
+}
+
+.correct {
+  animation: fadein 0.2s;
+  color: rgb(3, 177, 3);
+}
+
+.wrong {
+  animation: fadeout 0.2s;
+  color: rgb(247, 31, 31);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    font-size: 0.8rem;
+  }
+
+  to {
+    font-size: 1.4rem;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 0;
+    font-size: 1.7rem;
+  }
+
+  to {
+    font-size: 1.4rem;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .color-buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 600px;
+  }
+  .targetbox-container {
+    flex-direction: row;
+
+    max-width: 600px;
+    margin: 4rem auto;
+    gap: 60px;
+  }
+
+  .target-color {
+    height: 180px;
+    max-width: 330px;
+  }
+
+  .score-and-status {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}
