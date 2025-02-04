@@ -1,4 +1,4 @@
-import { PREDIFINED_COLORS } from "../utils/constant";
+/* eslint-disable react/prop-types */
 
 function Buttons({ onColorSelected, colorOptions }) {
   return (

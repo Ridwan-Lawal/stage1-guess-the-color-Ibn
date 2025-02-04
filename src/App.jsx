@@ -16,19 +16,25 @@ function App() {
     const randomIndex = Math.floor(Math.random() * PREDIFINED_COLORS.length);
 
     console.log(randomIndex);
+
+    // target color
     const colorForTarget = colorOptions[randomIndex];
+
+    // color options
     const colorForOptionBoxes = PREDIFINED_COLORS[randomIndex];
 
     setColorOptions(colorForOptionBoxes);
     setTargetColor(colorForTarget);
   }, [score, colorOptions]);
 
+  // function to reset score
   const handleResetScore = () => {
     setColorSelected("");
     setScore(0);
     setIsColorCorrect(null);
   };
 
+  // function to handle the selected color
   const handleColorSelected = (color) => {
     setColorSelected("");
     setColorSelected(color);
@@ -36,6 +42,8 @@ function App() {
 
   useEffect(() => {
     if (!colorSelected) return;
+
+    // if the selected color is equal to the target color
     if (colorSelected === targetColor) {
       setIsColorCorrect(true);
       setScore((cur) => cur + 1);

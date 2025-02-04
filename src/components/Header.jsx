@@ -20,11 +20,14 @@ function Header({ targetColor, isColorCorrect, score }) {
 
       {/* score and status */}
       <div className="score-and-status">
+        {/* score */}
         <p className="score" data-testid="score">
           Score <MdSportsScore fontSize="16px" color="darkblue" />: {score}
         </p>
+
+        {/* status */}
         <p className="game-status" data-testid="gameStatus">
-          Status <SiStatuspal color="red" />:{" "}
+          Status <SiStatuspal color="red" />:
           {isColorCorrect !== null ? (
             isColorCorrect ? (
               <span className="correct">Correct Yayy🥳!</span>
