@@ -8,6 +8,8 @@ const errorMsgs = [
   "Almost got it, again! 😂",
 ];
 
+const successMsgs = ["Correct Yayy🥳!", "You got it 🎊", "Nice one 🎉"];
+
 function Header({ targetColor, isColorCorrect, score }) {
   return (
     <div className="targetbox-container">
@@ -30,7 +32,9 @@ function Header({ targetColor, isColorCorrect, score }) {
           Status <SiStatuspal color="red" />:
           {isColorCorrect !== null ? (
             isColorCorrect ? (
-              <span className="correct">Correct Yayy🥳!</span>
+              <span className="correct">
+                {successMsgs[Math.floor(Math.random() * successMsgs.length)]}
+              </span>
             ) : (
               <span className="wrong">
                 {errorMsgs[Math.floor(Math.random() * errorMsgs.length)]}
