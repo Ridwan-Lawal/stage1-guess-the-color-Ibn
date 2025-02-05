@@ -11,21 +11,22 @@ function App() {
   const [colorSelected, setColorSelected] = useState("");
   const [colorOptions, setColorOptions] = useState([]);
   const [isColorCorrect, setIsColorCorrect] = useState(null);
+  const [colorIndex, setColorIndex] = useState(0);
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * PREDIFINED_COLORS.length);
-
-    console.log(randomIndex);
-
     // target color
-    const colorForTarget = colorOptions[randomIndex];
+    const colorForTarget =
+      colorOptions?.[Math.floor(Math.random() * PREDIFINED_COLORS.length)];
 
     // color options
-    const colorForOptionBoxes = PREDIFINED_COLORS[randomIndex];
+    const colorForOptionBoxes = PREDIFINED_COLORS[colorIndex];
+    console.log(colorIndex);
+
+    console.log(colorForOptionBoxes, colorForTarget);
 
     setColorOptions(colorForOptionBoxes);
     setTargetColor(colorForTarget);
-  }, [score, colorOptions]);
+  }, [score, colorOptions, colorIndex]);
 
   // function to reset score
   const handleResetScore = () => {
@@ -48,9 +49,18 @@ function App() {
       setIsColorCorrect(true);
       setScore((cur) => cur + 1);
       setColorSelected("");
+      setColorIndex((cur) =>
+        cur === PREDIFINED_COLORS.length - 1 ? (cur = 0) : cur + 1
+      );
     } else {
       setIsColorCorrect(false);
     }
+
+    // for clearing the status message
+    setTimeout(() => {
+      setIsColorCorrect(null);
+      setColorSelected("");
+    }, 1000);
   }, [colorSelected, targetColor]);
 
   return (

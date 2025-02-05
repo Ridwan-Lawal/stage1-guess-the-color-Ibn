@@ -5,6 +5,7 @@ function NavBar({ onResetScore }) {
   return (
     <nav>
       {/* App name */}
+
       <h1 data-testid="gameInstructions">
         Guess <span>the</span> <span>Correct</span> <span>Color</span>
       </h1>
