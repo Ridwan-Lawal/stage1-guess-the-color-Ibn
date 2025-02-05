@@ -54,22 +54,24 @@ function App() {
   }, [colorSelected, targetColor]);
 
   return (
-    <div className="container">
-      {/* nav (message, play-again button) */}
-      <NavBar onResetScore={handleResetScore} />
+    <div className="app-container">
+      <div className="container">
+        {/* nav (message, play-again button) */}
+        <NavBar onResetScore={handleResetScore} />
 
-      {/* target box, score and status */}
-      <Header
-        targetColor={targetColor}
-        isColorCorrect={isColorCorrect}
-        score={score}
-      />
+        {/* target box, score and status */}
+        <Header
+          targetColor={targetColor}
+          isColorCorrect={isColorCorrect}
+          score={score}
+        />
 
-      {/* color options */}
-      <Buttons
-        onColorSelected={handleColorSelected}
-        colorOptions={colorOptions}
-      />
+        {/* color options */}
+        <Buttons
+          onColorSelected={handleColorSelected}
+          colorOptions={colorOptions}
+        />
+      </div>
     </div>
   );
 }
